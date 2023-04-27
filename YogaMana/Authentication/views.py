@@ -8,7 +8,13 @@ from rest_framework import generics
 
 
 # Create your views here.
-class UserListgenerics(generics.ListCreateAPIView):
+class MemberListgenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
     #templates_name = 'templates/Authentication/userInfo.html'
+    
+class MemberDetailGeneric(generics.RetrieveAPIView):
+    queryset = models.Member.objects.all()
+    serializer_class = serializers.Memberserializers
+    
+        
