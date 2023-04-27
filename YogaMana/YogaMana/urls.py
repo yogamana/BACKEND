@@ -20,5 +20,5 @@ from Authentication import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' ,include('Authentication.urls') ),
+    path("api/",include('Authentication.urls') ),
 ]

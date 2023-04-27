@@ -11,3 +11,4 @@ from rest_framework import generics
 class UserListgenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
+    #templates_name = 'templates/Authentication/userInfo.html'
