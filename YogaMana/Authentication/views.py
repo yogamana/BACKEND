@@ -16,11 +16,15 @@ class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
     lookup_field ='pk'
+    permission_classes = (IsSuperuser ,)
+    
     
 
 class UserListgenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.Userserializers
+    permission_classes = (IsSuperuser ,)
+
     
 class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
