@@ -1,7 +1,7 @@
 from urllib import request
+from Authentication.permissions import IsSuperuser
 from django.shortcuts import render, HttpResponse 
-
-#from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from . import models
 from . import serializers
 from rest_framework import generics
@@ -11,10 +11,22 @@ from rest_framework import generics
 class MemberListgenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
-    #templates_name = 'templates/Authentication/userInfo.html'
     
-class MemberDetailGeneric(generics.RetrieveAPIView):
+class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
+    lookup_field ='pk'
     
-        
+
+class UserListgenerics(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = serializers.Userserializers
+    
+class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = serializers.Userserializers
+    lookup_field ='pk'
+    permission_classes = (IsSuperuser,)
+    
+
+
