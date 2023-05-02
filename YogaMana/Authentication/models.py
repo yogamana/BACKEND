@@ -1,5 +1,6 @@
 from re import T
 from django.db import models
+from django.contrib.auth.models import User 
 
 
 # Create your models here.
@@ -10,10 +11,12 @@ class Membership(models.Model):
     
 
 class Member(models.Model):
+    # id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     user_name = models.CharField(unique=True,max_length=200)
     password = models.CharField(unique=True,max_length=200)
+    # user = models.OneToOneField(u'id',User , on_delete=models.CASCADE , null=True)
     #phone = models.CharField(max_length=11 , default='+98')
     email = models.EmailField(unique=True)
     #membership = models.models.OneToOneField(Membership, verbose_name=_(""), on_delete=models.CASCADE)(models.Membership, verbose_name=_(""), on_delete=models.CASCADE)
