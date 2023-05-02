@@ -129,3 +129,6 @@ REST_FRAMEWORK = {
         'Authentication.permissions.isStaffOrReadOnly',
     ]
 }
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'
