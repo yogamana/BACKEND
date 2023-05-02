@@ -33,3 +33,21 @@ class Address(models.Model):
     phone = models.CharField(max_length=13)
 
 
+class Course(models.Model):
+    course_id = models.IntegerField()
+    category_id = models.IntegerField()
+    course_title = models.CharField(max_length=200)
+    description = models.TextField(max_length=600)
+    course_image = models.ImageField()
+    length = models.CharField()
+    reting = models.FloatField()
+    price = models.IntegerField()
+    membership_acsess = models.BigAutoField()
+
+
+class Program(models.Model):
+    program_id = models.IntegerField()
+    course_id = models.IntegerField()
+    description = models.TextField()
+    date_start = models.DateTimeField()
+    date_end = models.DateTimeField()
