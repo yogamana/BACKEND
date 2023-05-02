@@ -11,26 +11,23 @@ from rest_framework import generics
 class MemberListgenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
-    
+
+
 class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
-    lookup_field ='pk'
-    permission_classes = (IsSuperuser ,)
-    
-    
+    lookup_field = 'pk'
+    permission_classes = (IsSuperuser,)
+
 
 class UserListgenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.Userserializers
-    permission_classes = (IsSuperuser ,)
+    permission_classes = (IsSuperuser,)
 
     
 class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.Userserializers
-    lookup_field ='pk'
+    lookup_field = 'pk'
     permission_classes = (IsSuperuser,)
-    
-
-

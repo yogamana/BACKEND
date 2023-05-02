@@ -1,4 +1,5 @@
-from rest_framework.permissions import BasePermission , SAFE_METHODS
+from rest_framework.permissions import BasePermission, SAFE_METHODS
+
 
 class IsSuperuser(BasePermission):
     """
@@ -7,6 +8,7 @@ class IsSuperuser(BasePermission):
 
     def has_permission(self, request, view):
         return bool(request.user and request.user.is_superuser)
+
 
 class IsStaffOrReadOnly(BasePermission):
     """
