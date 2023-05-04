@@ -70,7 +70,7 @@ class CourseVideo(models.Model):
     video_title = models.CharField(max_length=100)
     description = models.TextField()
     length = models.TimeField()
-    video_file = models.FileField(upload_to='video/', default='default.mp4')
+    video_file = models.FileField(upload_to='videos/', default='default.mp4')
 
 
 class Purchase(models.Model):

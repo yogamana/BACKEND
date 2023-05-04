@@ -3,6 +3,11 @@ from .models import Membership
 from .models import Member
 from .models import Course
 from .models import Program
+from .models import CourseVideo
+from .models import PhysicalInfo
+from .models import Purchase
+from .models import Category
+from .models import Address
 
 
 @admin.register(Member)
@@ -22,7 +27,32 @@ class MembershipAdmin(admin.ModelAdmin):
     list_display = ['membership_title', 'member_id', 'membership_id']
 
 
+class CourseVideoAdmin(admin.ModelAdmin):
+    list_display = ['video_id', 'course_id', 'category_id', 'video_title', 'length']
+
+
+class PhysicalInfoAdmin(admin.ModelAdmin):
+    list_display = ['physical_info_id', 'member_id', 'height', 'weight', 'gender', 'birth_date']
+
+
+class PurchaseAdmin(admin.ModelAdmin):
+    list_display = ['purchase_id', 'member_id', 'course_id', 'payment_status']
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['category_id', 'category_title']
+
+
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ['address_id', 'member_id', 'country', 'city', 'address_phone']
+
+
 admin.site.register(Course, CourseAdmin)
 # admin.site.register(Member)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Membership, MembershipAdmin)
+admin.site.register(CourseVideo, CourseVideoAdmin)
+admin.site.register(PhysicalInfo, PhysicalInfoAdmin)
+admin.site.register(Purchase, PurchaseAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Address, AddressAdmin)
