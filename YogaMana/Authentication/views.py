@@ -5,12 +5,16 @@ from django.contrib.auth.models import User
 from . import models
 from . import serializers
 from rest_framework import generics
+# from rest_framework.authentication import BasicAuthentication
+
 
 
 # Create your views here.
 class MemberListgenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.Memberserializers
+    permission_classes = (IsSuperuser ,)
+
     
 class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
@@ -31,6 +35,7 @@ class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.Userserializers
     lookup_field ='pk'
     permission_classes = (IsSuperuser,)
+
     
 
 
