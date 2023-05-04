@@ -14,7 +14,15 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ['course_title', 'price', 'length', 'rating']
 
 
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = ['course_id', 'program_id']
+
+
+class MembershipAdmin(admin.ModelAdmin):
+    list_display = ['membership_title', 'member_id', 'membership_id']
+
+
 admin.site.register(Course, CourseAdmin)
-#admin.site.register(Member)
-admin.site.register(Program)
-admin.site.register(Membership)
+# admin.site.register(Member)
+admin.site.register(Program, ProgramAdmin)
+admin.site.register(Membership, MembershipAdmin)
