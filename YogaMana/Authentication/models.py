@@ -22,12 +22,17 @@ class Membership(models.Model):
 
 
 class PhysicalInfo(models.Model):
+    gender_choices = (
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ('non', 'Not Preferred'),
+    )
     physical_info_id = models.IntegerField(primary_key=True, unique=True, default=-1)
     member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
     height = models.FloatField(validators=[MaxValueValidator(220)])
     weight = models.FloatField(validators=[MaxValueValidator(200)])
     birth_date = models.DateField()
-    gender = models.CharField(max_length=13)
+    gender = models.CharField(max_length=20, choices=gender_choices, default='non')
 
 
 class Address(models.Model):
@@ -44,9 +49,9 @@ class Course(models.Model):
     course_title = models.CharField(max_length=200)
     description = models.TextField(max_length=600)
     course_cover_image = models.ImageField(upload_to='images/course_cover/', default='default.jpg')
-    length = models.TimeField()
+    length = models.DurationField()
     rating = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(10)])
-    price = models.IntegerField()
+    price = models.CharField(max_length=15)
     # members_access = models.ManyToManyField(Member)
 
 
@@ -69,7 +74,7 @@ class CourseVideo(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     video_title = models.CharField(max_length=100)
     description = models.TextField()
-    length = models.TimeField()
+    length = models.DurationField()
     video_file = models.FileField(upload_to='videos/', default='default.mp4')
 
 
