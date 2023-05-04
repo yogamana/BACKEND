@@ -1,5 +1,5 @@
 from urllib import request
-from Authentication.permissions import IsSuperuser
+from .permissions import IsSuperuser
 from django.shortcuts import render, HttpResponse 
 from django.contrib.auth.models import User
 from . import models
@@ -8,26 +8,26 @@ from rest_framework import generics
 
 
 # Create your views here.
-class MemberListgenerics(generics.ListCreateAPIView):
+class MemberListGenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
-    serializer_class = serializers.Memberserializers
+    serializer_class = serializers.MemberSerializers
 
 
 class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
-    serializer_class = serializers.Memberserializers
+    serializer_class = serializers.MemberSerializers
     lookup_field = 'pk'
     permission_classes = (IsSuperuser,)
 
 
-class UserListgenerics(generics.ListCreateAPIView):
+class UserListGenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    serializer_class = serializers.Userserializers
+    serializer_class = serializers.UserSerializers
     permission_classes = (IsSuperuser,)
 
     
 class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
-    serializer_class = serializers.Userserializers
+    serializer_class = serializers.UserSerializers
     lookup_field = 'pk'
     permission_classes = (IsSuperuser,)
