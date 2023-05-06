@@ -22,14 +22,16 @@ class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsSuperuser,)
 
 
+"""
 class UserListGenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializers
     permission_classes = (IsSuperuser,)
 
-    
+
 class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializers
     lookup_field = 'pk'
     permission_classes = (IsSuperuser,)
+"""

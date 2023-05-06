@@ -8,11 +8,27 @@ from .models import PhysicalInfo
 from .models import Purchase
 from .models import Category
 from .models import Address
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth import get_user_model
+# @admin.register(Member)
+# class MemberAdmin(admin.ModelAdmin):
+#    list_display = ['user_name', 'password', 'created_date']
 
 
-@admin.register(Member)
-class MemberAdmin(admin.ModelAdmin):
-    list_display = ['user_name', 'password', 'created_date']
+class CustomMemberAdmin(UserAdmin):
+    fieldsets = UserAdmin.fieldsets + (
+            ('Profile', {'fields': (
+                                'member_id',
+                                #'first_name',
+                                #'last_name',
+                                #'username',
+                                #'password',
+                                'phone_number',
+                                #'email',
+                                #'created_date',
+                                'profile_image',
+            )}),
+    )
 
 
 class CourseAdmin(admin.ModelAdmin):
@@ -48,7 +64,7 @@ class AddressAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Course, CourseAdmin)
-# admin.site.register(Member)
+admin.site.register(Member, CustomMemberAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Membership, MembershipAdmin)
 admin.site.register(CourseVideo, CourseVideoAdmin)
@@ -56,3 +72,4 @@ admin.site.register(PhysicalInfo, PhysicalInfoAdmin)
 admin.site.register(Purchase, PurchaseAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Address, AddressAdmin)
+# admin.site.register(get_user_model(), CustomUserAdmin)
