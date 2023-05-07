@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'Authentication.apps.AuthenticationConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    
 ]
 
 MIDDLEWARE = [
@@ -135,3 +142,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # BASE_DIR/'media'
 MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'Authentication.Member'
+SITE_ID = 1
