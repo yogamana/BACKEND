@@ -206,7 +206,7 @@ class Migration(migrations.Migration):
                 ("length", models.TimeField()),
                 (
                     "video_file",
-                    models.FileField(default="default.mp4", upload_to="video/"),
+                    models.FileField(default="default.mp4", upload_to="videos/"),
                 ),
                 (
                     "category_id",
