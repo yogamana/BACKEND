@@ -24,16 +24,8 @@ class CourseCategoryIdInline(admin.TabularInline):
 class CustomMemberAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
             (None, {'fields': (
-                                # 'member_id',
-                                # 'first_name',
-                                # 'last_name',
-                                # 'username',
-                                # 'password',
                                 'phone_number',
-                                # 'email',
-                                # 'created_date',
                                 'profile_image',
-                                # 'get_purchased_course_id'
             )}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
@@ -107,6 +99,5 @@ admin.site.register(PhysicalInfo, PhysicalInfoAdmin)
 admin.site.register(Purchase, PurchaseAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Address, AddressAdmin)
-# admin.site.register(get_user_model(), CustomUserAdmin)
 admin.site.register(CourseMemberRelationships, CourseMemberRelationshipsAdmin)
 admin.site.register(CourseCategoryRelationships, CourseCategoryRelationshipsAdmin)

@@ -14,7 +14,6 @@ class Member(AbstractUser):
     created_date = models.DateField(auto_now_add=True)
     profile_image = models.ImageField(upload_to='images/profile/', default='default.jpg')
     # REQUIRED_FIELDS = ['member_id', 'password', 'email']
-    member_ship = models.OneToOneField('Membership', on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = "Member"
@@ -25,7 +24,7 @@ class Member(AbstractUser):
 
 
 class Membership(models.Model):
-    member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
+    member_id = models.OneToOneField(Member, on_delete=models.CASCADE)
     membership_title = models.TextField(max_length=250)
 
     def __str__(self):

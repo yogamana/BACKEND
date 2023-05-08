@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6dqc(ovp=lqm3%0ho(ys@!zos&ppnhqw=)_$u^(p)r5)o_=9f^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Authentication.apps.AuthenticationConfig',
+    'AndroidApp.apps.AndroidAppConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
@@ -134,16 +134,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION-CLASSES': [
-        'Authentication.permissions.isStaffOrReadOnly',
+        'AndroidApp.permissions.isStaffOrReadOnly',
     ]
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # BASE_DIR/'media'
 MEDIA_URL = '/media/'
-AUTH_USER_MODEL = 'Authentication.Member'
+AUTH_USER_MODEL = 'AndroidApp.Member'
 SITE_ID = 1
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-# DCS_SESSION_COOKIE_SAMESITE = "None"
-CSRF_COOKIE_HTTPONLY = True
