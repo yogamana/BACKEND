@@ -3,7 +3,7 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-# app_name='Authentication'
+# app_name='AndroidApp'
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),

@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Authentication.apps.AuthenticationConfig',
+    'AndroidApp.apps.AndroidAppConfig',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -129,11 +129,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION-CLASSES': [
-        'Authentication.permissions.isStaffOrReadOnly',
+        'AndroidApp.permissions.isStaffOrReadOnly',
     ]
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # BASE_DIR/'media'
 MEDIA_URL = '/media/'
-AUTH_USER_MODEL = 'Authentication.Member'
+AUTH_USER_MODEL = 'AndroidApp.Member'
