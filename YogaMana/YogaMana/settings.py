@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'AndroidApp.apps.AndroidAppConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    
 ]
 
 MIDDLEWARE = [
@@ -137,3 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # BASE_DIR/'media'
 MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'AndroidApp.Member'
+SITE_ID = 1
