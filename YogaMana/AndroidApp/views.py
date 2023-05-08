@@ -19,16 +19,10 @@ class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.MemberSerializers
     lookup_field = 'pk'
-<<<<<<< HEAD:YogaMana/Authentication/views.py
-    #permission_classes = (IsSuperuser,)
-    
-class PysicalInfoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
-=======
     permission_classes = (IsSuperuser,)
 
 
 class PhysicalInfoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
->>>>>>> 898e662cd7f07e01664545d4b5ee804a5916bd09:YogaMana/AndroidApp/views.py
     queryset = models.PhysicalInfo.objects.all()
     serializer_class = serializers.PhysicalInfoSerializers
     lookup_field = 'pk'
@@ -37,13 +31,8 @@ class PhysicalInfoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
 
 class CourseListGeneric(generics.ListCreateAPIView):
     queryset = models.Course.objects.all()
-<<<<<<< HEAD:YogaMana/Authentication/views.py
-    serializer_class = serializers.course_Serializers
-    # permission_classes = (IsSuperuser,)
-=======
     serializer_class = serializers.CourseSerializers
     permission_classes = (IsSuperuser,)
->>>>>>> 898e662cd7f07e01664545d4b5ee804a5916bd09:YogaMana/AndroidApp/views.py
 
 
 class CourseDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
@@ -76,13 +65,8 @@ class CategoryDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
 
 class CategoryListGeneric(generics.ListCreateAPIView):
     queryset = models.Category.objects.all()
-<<<<<<< HEAD:YogaMana/Authentication/views.py
-    serializer_class = serializers.Category_Serializers
-    # permission_classes = (IsSuperuser,)
-=======
     serializer_class = serializers.CategorySerializers
     permission_classes = (IsSuperuser,)
->>>>>>> 898e662cd7f07e01664545d4b5ee804a5916bd09:YogaMana/AndroidApp/views.py
 
 
 class CourseVideoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
