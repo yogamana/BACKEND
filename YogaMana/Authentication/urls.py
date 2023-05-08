@@ -8,7 +8,7 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')), #old version of authentication
     path("member-list/", views.MemberListGenerics.as_view() , name='members_list_info'), #list of member info
-    path("cource-list/", views.CourseListGeneric.as_view() , name='courses_list_info'), #list of courses info
+    path("course-list/", views.CourseListGeneric.as_view() , name='courses_list_info'), #list of courses info
     path("category-list/", views.CategoryListGeneric.as_view() , name='category_list_info'), #list of category info
     path("purchase-list/", views.PurchaseListGeneric.as_view() , name='purchase_list_info'), #list of purchase info
     path("member/<int:pk>/", views.MemberDetailGeneric.as_view() , name='member_detail_info'), #detail info of a user in profile
