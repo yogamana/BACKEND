@@ -27,6 +27,8 @@ class Membership(models.Model):
     member_id = models.OneToOneField(Member, on_delete=models.CASCADE)
     membership_title = models.TextField(max_length=250)
 
+    class Meta:
+        verbose_name = 'عضویت'
     def __str__(self):
         return f"{self.membership_title}"
 
@@ -43,6 +45,8 @@ class PhysicalInfo(models.Model):
     birth_date = models.DateField()
     gender = models.CharField(max_length=20, choices=gender_choices, default='non')
 
+    class Meta:
+        verbose_name = 'اطلاعات فیزیکی'
     def __str__(self):
         return f"{self.member_id} --> {self.height} --> {self.weight} --> {self.gender}"
 
@@ -54,12 +58,16 @@ class Address(models.Model):
     address = models.TextField(max_length=300)
     address_phone = models.CharField(max_length=13, default='+982100000000')
 
+    class Meta:
+        verbose_name = 'آدرس'
     def __str__(self):
         return f"{self.member_id} --> {self.country} --> {self.city}"
 
 
 class Category(models.Model):
     category_title = models.CharField(max_length=200)
+    class Meta:
+        verbose_name = 'دسته بندی ها'
 
     def __str__(self):
         return self.category_title
@@ -79,7 +87,7 @@ class Course(models.Model):
 
     class Meta:
         db_table = 'Category_Course_category_id'
-
+        verbose_name = 'دوره های آموزشی'
     def __str__(self):
         return f"{self.course_title} "
 
@@ -90,6 +98,9 @@ class Program(models.Model):
     date_start = models.DateTimeField()
     date_end = models.DateTimeField()
 
+    class Meta:
+        verbose_name = 'برنامه های ورزشی'
+
 
 class CourseVideo(models.Model):
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
@@ -98,6 +109,9 @@ class CourseVideo(models.Model):
     description = models.TextField()
     length = models.DurationField()
     video_file = models.FileField(upload_to='videos/', default='default.mp4')
+
+    class Meta:
+        verbose_name = 'فیلم های دوره'
 
     def __str__(self):
         return self.video_title
@@ -113,6 +127,9 @@ class Purchase(models.Model):
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
     place_at = models.CharField(max_length=20)
     payment_status = models.CharField(max_length=20, choices=payment_status_choices, default='unsuccessful')
+
+    class Meta:
+        verbose_name = 'خرید'
 
     def __str__(self):
         return f"{self.member_id} --> {self.course_id} --> {self.payment_status}"
