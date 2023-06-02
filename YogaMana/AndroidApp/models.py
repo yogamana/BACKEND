@@ -88,6 +88,7 @@ class Course(models.Model):
     class Meta:
         db_table = 'Category_Course_category_id'
         verbose_name = 'دوره های آموزشی'
+
     def __str__(self):
         return f"{self.course_title} "
 
