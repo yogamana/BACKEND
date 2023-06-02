@@ -140,6 +140,9 @@ REST_FRAMEWORK = {
         'AndroidApp.permissions.isStaffOrReadOnly',
     ],
     'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
