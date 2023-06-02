@@ -140,6 +140,9 @@ REST_FRAMEWORK = {
         'AndroidApp.permissions.isStaffOrReadOnly',
     ],
     'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    ),
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -147,3 +150,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'AndroidApp.Member'
 SITE_ID = 1
+# REST_USE_JWT = True
+# REST_AUTH = { 'USE_JWT': True, 'JWT_AUTH_HTTPONLY':False} 
+REST_AUTH = {
+    'JWT_AUTH_HTTPONLY':False,
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'access',
+    'JWT_AUTH_REFRESH_COOKIE': 'refresh',
+}
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
