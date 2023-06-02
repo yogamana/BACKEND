@@ -158,3 +158,4 @@ REST_AUTH = {
     'JWT_AUTH_COOKIE': 'access',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh',
 }
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
