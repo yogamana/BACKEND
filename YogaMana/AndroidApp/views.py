@@ -96,6 +96,8 @@ class MembershipDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = (IsSuperuser,)
 
 
+
+    
 """
 class UserListGenerics(generics.ListCreateAPIView):
     queryset = User.objects.all()
