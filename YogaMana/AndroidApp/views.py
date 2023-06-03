@@ -12,34 +12,34 @@ from rest_framework import generics
 class MemberListGenerics(generics.ListCreateAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.MemberSerializers
-    permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class MemberDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Member.objects.all()
     serializer_class = serializers.MemberSerializers
     lookup_field = 'pk'
-    permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class PhysicalInfoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.PhysicalInfo.objects.all()
     serializer_class = serializers.PhysicalInfoSerializers
     lookup_field = 'pk'
-    #permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class CourseListGeneric(generics.ListCreateAPIView):
     queryset = models.Course.objects.all()
     serializer_class = serializers.CourseSerializers
-    permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class CourseDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Course.objects.all()
     serializer_class = serializers.CourseSerializers
     lookup_field = 'pk'
-    #permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class AddressDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
@@ -47,6 +47,11 @@ class AddressDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.AddressSerializers
     lookup_field = 'pk'
     # permission_classes = (IsSuperuser,)
+
+
+class AddressListGeneric(generics.ListCreateAPIView):
+    queryset = models.Address.objects.all()
+    serializer_class = serializers.AddressSerializers
 
 
 class ProgramDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
@@ -66,7 +71,7 @@ class CategoryDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
 class CategoryListGeneric(generics.ListCreateAPIView):
     queryset = models.Category.objects.all()
     serializer_class = serializers.CategorySerializers
-    permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class CourseVideoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
@@ -79,7 +84,7 @@ class CourseVideoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
 class PurchaseListGeneric(generics.ListCreateAPIView):
     queryset = models.Purchase.objects.all()
     serializer_class = serializers.PurchaseSerializers
-    permission_classes = (IsSuperuser,)
+    # permission_classes = (IsSuperuser,)
 
 
 class PurchaseDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
@@ -94,20 +99,3 @@ class MembershipDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.MembershipSerializers
     lookup_field = 'pk'
     # permission_classes = (IsSuperuser,)
-
-
-
-    
-"""
-class UserListGenerics(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = serializers.UserSerializers
-    permission_classes = (IsSuperuser,)
-
-
-class UserDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = serializers.UserSerializers
-    lookup_field = 'pk'
-    permission_classes = (IsSuperuser,)
-"""
