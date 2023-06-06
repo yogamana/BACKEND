@@ -29,6 +29,11 @@ class PhysicalInfoDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = (IsSuperuser,)
 
 
+class PhysicalInfoListGeneric(generics.ListCreateAPIView):
+    queryset = models.PhysicalInfo.objects.all()
+    serializer_class = serializers.PhysicalInfoSerializers
+
+
 class CourseListGeneric(generics.ListCreateAPIView):
     queryset = models.Course.objects.all()
     serializer_class = serializers.CourseSerializers

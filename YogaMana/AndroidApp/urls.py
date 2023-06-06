@@ -15,6 +15,7 @@ urlpatterns = [
     path("purchase-list/", views.PurchaseListGeneric.as_view(), name='purchase_list_info'),  # list of purchase info
     path("member/<int:pk>/", views.MemberDetailGeneric.as_view(), name='member_detail_info'),
     path("address-list/", views.AddressListGeneric.as_view(), name='address_list_info'),  # list of courses info
+    path("physicalinfo-list/", views.PhysicalInfoListGeneric.as_view(), name='physicalinfo_list_info'),  # list of courses info
 
     # detail info of a user in profile
     path("pysical-info/<int:pk>/", views.PhysicalInfoDetailGeneric.as_view(), name='physical_detail_info'),
