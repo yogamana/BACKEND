@@ -60,12 +60,14 @@ class Address(models.Model):
 
     class Meta:
         verbose_name = 'آدرس'
+
     def __str__(self):
         return f"{self.member_id} --> {self.country} --> {self.city}"
 
 
 class Category(models.Model):
     category_title = models.CharField(max_length=200)
+
     class Meta:
         verbose_name = 'دسته بندی ها'
 

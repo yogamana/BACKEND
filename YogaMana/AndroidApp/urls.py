@@ -3,10 +3,7 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView,)
 
 # app_name='AndroidApp'
 urlpatterns = [
@@ -17,6 +14,8 @@ urlpatterns = [
     path("category-list/", views.CategoryListGeneric.as_view(), name='category_list_info'),  # list of category info
     path("purchase-list/", views.PurchaseListGeneric.as_view(), name='purchase_list_info'),  # list of purchase info
     path("member/<int:pk>/", views.MemberDetailGeneric.as_view(), name='member_detail_info'),
+    path("address-list/", views.AddressListGeneric.as_view(), name='address_list_info'),  # list of courses info
+    path("physicalinfo-list/", views.PhysicalInfoListGeneric.as_view(), name='physicalinfo_list_info'),  # list of courses info
 
     # detail info of a user in profile
     path("pysical-info/<int:pk>/", views.PhysicalInfoDetailGeneric.as_view(), name='physical_detail_info'),

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os.path
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -128,7 +128,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -139,13 +139,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION-CLASSES': [
         'AndroidApp.permissions.isStaffOrReadOnly',
     ],
-    'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ),
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 # BASE_DIR/'media'
 MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'AndroidApp.Member'
@@ -153,7 +154,7 @@ SITE_ID = 1
 # REST_USE_JWT = True
 # REST_AUTH = { 'USE_JWT': True, 'JWT_AUTH_HTTPONLY':False} 
 REST_AUTH = {
-    'JWT_AUTH_HTTPONLY':False,
+    'JWT_AUTH_HTTPONLY': False,
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'access',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh',
