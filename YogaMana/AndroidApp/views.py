@@ -104,3 +104,8 @@ class MembershipDetailGeneric(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.MembershipSerializers
     lookup_field = 'pk'
     # permission_classes = (IsSuperuser,)
+
+
+class CourseVideoListGeneric(generics.ListCreateAPIView):
+    queryset = models.CourseVideo.objects.all()
+    serializer_class = serializers.CourseVideoSerializers

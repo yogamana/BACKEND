@@ -17,6 +17,8 @@ urlpatterns = [
     path("address-list/", views.AddressListGeneric.as_view(), name='address_list_info'),  # list of courses info
     path("physicalinfo-list/", views.PhysicalInfoListGeneric.as_view(), name='physicalinfo_list_info'),  # list of courses info
 
+    path("course-video-list/", views.CourseVideoListGeneric.as_view(), name='course-video_list_info'),
+
     # detail info of a user in profile
     path("pysical-info/<int:pk>/", views.PhysicalInfoDetailGeneric.as_view(), name='physical_detail_info'),
     # detail physical info about a user
@@ -39,5 +41,6 @@ urlpatterns = [
     # path("api-token-auth/",obtain_auth_token),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
